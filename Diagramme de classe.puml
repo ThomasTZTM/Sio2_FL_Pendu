@@ -2,7 +2,10 @@
 
 class MotADeviner {
   - array ListeMot
-  + __construct(array $ListeMot)
+  - string LeMotsADevine
+  - int LongueurMot
+  - array TableauUnderscoreMot
+  + __construct()
   + getMot() : string
   + getMotCache() : array
   + updateMotCache(string $lettre) : void
@@ -12,7 +15,8 @@ class MotADeviner {
 class JeuPendu {
   - MotADeviner Mot
   - int Nb_erreur
-  + __construct($MotADeviner $mot, int $Nb_erreur)
+  - array lettreProposer
+  + __construct()
   + jouer() : void
   + afficherMotCache() : void
   + demanderLettre() : string
