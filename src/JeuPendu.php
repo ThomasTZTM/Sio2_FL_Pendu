@@ -20,9 +20,8 @@ class JeuPendu
             echo "\nVous avez $this->nbErreur tentative pour trouver le mot cacher. \n";
             echo "Votre progression : ";
             $this->afficherMotCache();
-            echo "\n";
-            if(count($this->lettreProposer)>1){
-                echo "Votre progression : ";
+            if(count($this->lettreProposer)>0){
+                echo "\nLettres déjà proposé : ";
                 foreach ($this->lettreProposer as $lettres) {
                     echo $lettres." ";
                 }
@@ -35,14 +34,14 @@ class JeuPendu
             $this->afficherMotCache();
             $resultat=$this->motADeviner->isComplete();
             if ($resultat == true) {
-                echo "\n VOUS AVEZ GAGNER \n";
+                echo "\nVOUS AVEZ GAGNER !!! \n";
                 die();
             }
             echo "\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
             echo "";
             $this->nbErreur--;
         }
-        echo "\n PERDU \n";
+        echo "\nPERDU \n";
         die();
 
     }
@@ -56,8 +55,15 @@ class JeuPendu
 
     public function demanderLettre() : string{
         $lettre = readline("Entrer une lettre : ");
-        if ((strlen($lettre) > 1) or is_numeric($lettre)) {
+        $lettre = strtoupper($lettre);
+        if ((strlen($lettre) > 1) or is_numeric($lettre) or !ctype_alpha($lettre)) {
             echo "/!\ Merci de rentrer une lettre";
+            sleep(1);
+            echo "...";
+            sleep(1);
+            return "";
+        }elseif (in_array($lettre, $this->lettreProposer)) {
+            echo "/!\ Vous avez déjà entrer cette lettre";
             sleep(1);
             echo "...";
             sleep(1);

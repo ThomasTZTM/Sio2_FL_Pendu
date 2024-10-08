@@ -7,7 +7,7 @@ class MotADeviner
     protected int $LongueurMot;
     protected array $TableauUnderscoreMot;
     public function __construct(){
-        $this->ListeMot = ["vert","bleub","rouge","noire"];
+        $this->ListeMot = ["VERT","BLEU","ROUGE","NOIRE"];
         $this->LeMotsADeviner = $this->ListeMot[array_rand($this->ListeMot)];
         $longueur = strlen($this->LeMotsADeviner);
         $TableauUnderscoreMot = [];
