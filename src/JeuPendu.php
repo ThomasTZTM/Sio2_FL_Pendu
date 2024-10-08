@@ -34,10 +34,10 @@ class JeuPendu
             $this->afficherMotCache();
             $resultat=$this->motADeviner->isComplete();
             if ($resultat == true) {
-                echo "\nVOUS AVEZ GAGNER !!! \n";
+                echo "\nVOUS AVEZ GAGNER !!! \n\n";
                 die();
             }
-            echo "\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+            echo "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
             echo "";
             $this->nbErreur--;
         }
@@ -65,7 +65,7 @@ class JeuPendu
         }elseif (in_array($lettre, $this->lettreProposer)) {
             echo "/!\ Vous avez déjà entrer cette lettre";
             sleep(1);
-            echo "...";
+            echo "...\n";
             sleep(1);
             return "";
         }else{
