@@ -2,7 +2,7 @@
 namespace App;
 class MotADeviner
 {
-    protected array $ListeMot;
+    protected array $ListeMot = ["vert", "bleue", "rouge", "jaune"];
     protected array $TableauUnderscoreMot = [];
     public function __construct(array $ListeMot, array $TableauUnderscoreMot){
         $this->ListeMot = array_rand($ListeMot);
