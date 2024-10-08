@@ -1,0 +1,25 @@
+@startuml
+
+class MotADeviner {
+  - array ListeMot
+  + __construct(array $ListeMot)
+  + getMot() : string
+  + getMotCache() : array
+  + updateMotCache(string $lettre) : void
+  + isComplete() : bool
+}
+
+class JeuPendu {
+  - MotADeviner Mot
+  - int Nb_erreur
+  + __construct($MotADeviner $mot, int $Nb_erreur)
+  + jouer() : void
+  + afficherMotCache() : void
+  + demanderLettre() : string
+  + traiterLettre(string $lettre) : void
+
+  }
+
+MotADeviner <|-- JeuPendu
+
+@enduml
